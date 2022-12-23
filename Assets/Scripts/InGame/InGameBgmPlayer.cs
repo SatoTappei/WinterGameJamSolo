@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class InGameBgmPlayer : MonoBehaviour
 {
-    void Start()
+    public void Play()
     {
         SoundManager.Instance?.PlayBGM("ƒCƒ“ƒQ[ƒ€BGM");
     }
