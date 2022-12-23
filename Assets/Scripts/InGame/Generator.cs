@@ -33,7 +33,7 @@ public class Generator : MonoBehaviour, IManageable
             // ‹ïŞ‚Æƒ{ƒ€‚Ç‚¿‚ç‚ğ¶¬‚·‚é‚©ƒ‰ƒ“ƒ_ƒ€‚ÅŒˆ’è‚µ
             // ‹ïŞ‚Ìê‡‚Í‚Ç‚Ì‹ïŞ‚ğ¶¬‚·‚é‚©ƒ‰ƒ“ƒ_ƒ€‚ÅŒˆ’è‚·‚é
             GameObject go = Random.Range(0, 100) < _bomRate ? _bom : _items[Random.Range(0, _items.Length)];
-            _resolver.Instantiate(go);
+            _resolver.Instantiate(go, transform.position, Quaternion.identity);
 
             await UniTask.DelayFrame(_distance * 60);
         }

@@ -46,6 +46,8 @@ public class StickToPlayer : MonoBehaviour
 
                 // くっ付いた座標をデータとしてメッセージを発行する
                 _publisher.Publish(new StickData(transform));
+
+                SoundManager.Instance?.PlaySE("SE_具材接着");
             });
     }
 }

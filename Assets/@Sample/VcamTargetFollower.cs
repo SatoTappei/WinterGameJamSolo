@@ -8,12 +8,15 @@ using VContainer;
 using VContainer.Unity;
 
 /// <summary>
-/// CinemachineにFollowするオブジェクトを設定するPresenter
+/// CinemachineにFollowするオブジェクトを設定するコンポーネント
 /// </summary>
-public class TargetFollowPresenter : MonoBehaviour
+public class VcamTargetFollower : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera _vcam;
     [Inject] ISubscriber<StickData> _subscriber;
+
+    [Header("カメラの追従に合わせて動かしたいオブジェクト")]
+    [SerializeField] Transform[] _reservedChild;
 
     float _currentPosY;
 
@@ -22,6 +25,10 @@ public class TargetFollowPresenter : MonoBehaviour
         // このオブジェクトをカメラは追従する
         GameObject follower = new GameObject();
         follower.name = "VcamFollower";
+
+        // _reservedChildの中身を子として登録する
+        foreach (Transform t in _reservedChild)
+            t.SetParent(follower.transform);
 
         _vcam.Follow = follower.transform;
 
