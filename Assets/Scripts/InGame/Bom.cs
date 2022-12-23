@@ -12,13 +12,16 @@ using VContainer;
 /// </summary>
 public struct ExploData
 {
+    Transform trans;
     float distance;
 
-    public ExploData(float d)
+    public ExploData(Transform t, float d)
     {
+        trans = t;
         distance = d;
     }
 
+    public Transform Trans { get => trans; }
     /// <summary>爆風が届いたかどうかを判定するための距離データ</summary>
     public float Distance { get => distance; }
 }
@@ -44,8 +47,8 @@ public class Bom : MonoBehaviour
                     SoundManager.Instance?.PlaySE("SE_爆発");
 
                     // 爆発した事を伝えるメッセージを発行する
-                    // 具材側はこれを購読する
-                    _publisher.Publish(new ExploData(5));
+                    // 具材とプール側はこれを購読する
+                    _publisher.Publish(new ExploData(transform, 5));
                 });
             }).AddTo(this);
     }
