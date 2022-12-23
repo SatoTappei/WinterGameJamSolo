@@ -8,12 +8,17 @@ using MessagePipe;
 using VContainer;
 using VContainer.Unity;
 
+
 /// <summary>
 /// 具材オブジェクトを生成するコンポーネント
 /// </summary>
 public class Generator : MonoBehaviour, IManageable
 {
     [Inject] IObjectResolver _resolver;
+
+    [Header("生成箇所の左右の端")]
+    [SerializeField] Transform _borderLeft;
+    [SerializeField] Transform _borderRight;
 
     [SerializeField] GameObject[] _items;
     [SerializeField] GameObject _bom;
@@ -30,12 +35,19 @@ public class Generator : MonoBehaviour, IManageable
         {
             token.ThrowIfCancellationRequested();
 
+            // 生成箇所をランダムで左右に振る
+            float rx = Random.Range(_borderLeft.position.x, _borderRight.position.x);
+            Vector3 pos = transform.position;
+            pos.x += rx;
+
             // 具材とボムどちらを生成するかランダムで決定し
             // 具材の場合はどの具材を生成するかランダムで決定する
             GameObject go = Random.Range(0, 100) < _bomRate ? _bom : _items[Random.Range(0, _items.Length)];
-            _resolver.Instantiate(go, transform.position, Quaternion.identity);
+            _resolver.Instantiate(go, pos, Quaternion.identity);
 
-            await UniTask.DelayFrame(_distance * 60);
+            // 生成ペースにランダム性を持たせる
+            float rt = Random.Range(0.9f, 1.1f);
+            await UniTask.Delay(System.TimeSpan.FromSeconds(_distance * rt));
         }
     }
 

@@ -8,5 +8,6 @@ public class InGameLifetimeScope : LifetimeScope
     {
         MessagePipeOptions options = builder.RegisterMessagePipe();
         builder.RegisterMessageBroker<StickData>(options);
+        builder.RegisterMessageBroker<ExploData>(options);
     }
 }

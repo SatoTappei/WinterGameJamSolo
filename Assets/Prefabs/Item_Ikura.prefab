@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4945237071687405528}
   - component: {fileID: 4945237071687405532}
   - component: {fileID: 4945237071687405533}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Item_Ikura
   m_TagString: Player
   m_Icon: {fileID: 0}

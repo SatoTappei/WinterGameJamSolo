@@ -26,7 +26,7 @@ public struct StickData
 /// </summary>
 public class StickToPlayer : MonoBehaviour
 {
-    readonly string HitTag = "Player";
+    readonly string HitTag = Utility.PlayerTag;
 
     [Inject] IPublisher<StickData> _publisher;
     [SerializeField] Rigidbody2D _rb;
@@ -35,6 +35,7 @@ public class StickToPlayer : MonoBehaviour
     {
         this.OnTriggerEnter2DAsObservable()
             .Where(c => c.gameObject.CompareTag(HitTag))
+            .Take(1)
             .Subscribe(c => 
             {
                 // 子オブジェクトにすることでくっ付いた表現をする
@@ -48,6 +49,6 @@ public class StickToPlayer : MonoBehaviour
                 _publisher.Publish(new StickData(transform));
 
                 SoundManager.Instance?.PlaySE("SE_具材接着");
-            });
+            }).AddTo(this);
     }
 }
