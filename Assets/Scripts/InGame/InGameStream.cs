@@ -25,7 +25,7 @@ public class InGameStream : MonoBehaviour
         ManageableManager manageableManager = new ManageableManager(2);
         manageableManager.Start();
         // ƒQ[ƒ€’†
-        await UniTask.Delay(TimeSpan.FromSeconds(55.0f));
+        await UniTask.Delay(TimeSpan.FromSeconds(955.0f));
 
         // ƒQ[ƒ€I—¹
         manageableManager.Stop();

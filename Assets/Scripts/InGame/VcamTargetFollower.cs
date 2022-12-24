@@ -12,6 +12,8 @@ using VContainer.Unity;
 /// </summary>
 public class VcamTargetFollower : MonoBehaviour
 {
+    readonly float OffsetPosY = 2.5f;
+
     [SerializeField] CinemachineVirtualCamera _vcam;
     [Inject] ISubscriber<StickData> _subscriber;
 
@@ -39,7 +41,7 @@ public class VcamTargetFollower : MonoBehaviour
                    .Subscribe(stickData=> 
                    {
                        Vector3 pos = transform.position;
-                       pos.y = stickData.Trans.position.y;
+                       pos.y = stickData.Trans.position.y + OffsetPosY;
 
                        follower.transform.position = pos;
 
