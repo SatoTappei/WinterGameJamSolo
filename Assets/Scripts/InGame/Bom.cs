@@ -35,6 +35,8 @@ public class Bom : MonoBehaviour
 
     [Inject] IPublisher<ExploData> _publisher;
 
+    Tween _tween;
+
     void Start()
     {
         this.OnTriggerEnter2DAsObservable()
@@ -42,14 +44,19 @@ public class Bom : MonoBehaviour
             .Take(1)
             .Subscribe(c =>
             {
-                DOVirtual.DelayedCall(0.5f, () =>
-                {
-                    SoundManager.Instance?.PlaySE("SE_爆発");
+                _tween = DOVirtual.DelayedCall(0.5f, () =>
+                         {
+                             SoundManager.Instance?.PlaySE("SE_爆発");
 
-                    // 爆発した事を伝えるメッセージを発行する
-                    // 具材とプール側はこれを購読する
-                    _publisher.Publish(new ExploData(transform, 5));
-                });
-            }).AddTo(this);
+                             // 爆発した事を伝えるメッセージを発行する
+                             // 具材とプール側はこれを購読する
+                             _publisher.Publish(new ExploData(transform, 5));
+                         });
+            });
+    }
+
+    void OnDestroy()
+    {
+        _tween.Kill();
     }
 }

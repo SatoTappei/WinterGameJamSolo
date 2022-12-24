@@ -12,6 +12,7 @@ using VContainer.Unity;
 /// </summary>
 public class VcamTargetFollower : MonoBehaviour
 {
+    /// <summary>レベルデザイン用のオフセット</summary>
     readonly float OffsetPosY = 2.5f;
 
     [SerializeField] CinemachineVirtualCamera _vcam;
