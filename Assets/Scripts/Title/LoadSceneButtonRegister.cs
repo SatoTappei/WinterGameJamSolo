@@ -29,7 +29,5 @@ public class LoadSceneButtonRegister : MonoBehaviour
                 FadeSystem.Instance?.FadeOut(_sceneName);
             });
         });
-
-        Debug.Log("Button“o˜^");
     }
 }

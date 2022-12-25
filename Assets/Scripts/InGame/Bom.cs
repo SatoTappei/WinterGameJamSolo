@@ -34,6 +34,10 @@ public class Bom : MonoBehaviour
     readonly string HitTag = Utility.PlayerTag;
 
     [Inject] IPublisher<ExploData> _publisher;
+    [Header("爆発の半径")]
+    [SerializeField] float _range;
+    [Header("爆発後の色")]
+    [SerializeField] Color32 _exploColor;
 
     Tween _tween;
 
@@ -48,9 +52,11 @@ public class Bom : MonoBehaviour
                          {
                              SoundManager.Instance?.PlaySE("SE_爆発");
 
+                             GetComponent<SpriteRenderer>().color = _exploColor;
+
                              // 爆発した事を伝えるメッセージを発行する
                              // 具材とプール側はこれを購読する
-                             _publisher.Publish(new ExploData(transform, 5));
+                             _publisher.Publish(new ExploData(transform, _range));
                          });
             });
     }

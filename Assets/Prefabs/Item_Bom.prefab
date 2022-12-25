@@ -151,6 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e599b7b8643312e4190f27579c98675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _range: 4
+  _exploColor:
+    serializedVersion: 2
+    rgba: 4278983813
 --- !u!114 &-6416984952628642327
 MonoBehaviour:
   m_ObjectHideFlags: 0
