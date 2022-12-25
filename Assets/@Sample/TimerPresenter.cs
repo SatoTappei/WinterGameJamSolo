@@ -18,6 +18,6 @@ public class TimerPresenter : MonoBehaviour
         _timer.Count.Subscribe(i => _text.text = Mathf.Max(0, i).ToString())
                     .AddTo(this);
 
-        _text.text = _inGameStream.TimeLimit.ToString();
+        _text.text = _inGameStream?.TimeLimit.ToString();
     }
 }

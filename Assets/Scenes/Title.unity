@@ -348,7 +348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a51a49ef0070f4dba8283d161de9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startButton: {fileID: 820480762}
+  _button: {fileID: 820480762}
+  _sceneName: InGame
+  _seName: "\u30DC\u30BF\u30F3\u30AF\u30EA\u30C3\u30AFSE"
 --- !u!114 &543496434
 MonoBehaviour:
   m_ObjectHideFlags: 0

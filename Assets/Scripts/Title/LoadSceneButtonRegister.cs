@@ -5,25 +5,31 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 /// <summary>
-/// スタートボタンに処理を登録するコンポーネント
+/// ボタンにシーン遷移の処理を登録するコンポーネント
 /// </summary>
-public class StartButonRegister : MonoBehaviour
+public class LoadSceneButtonRegister : MonoBehaviour
 {
-    [SerializeField] Button _startButton;
+    [SerializeField] Button _button;
+    [SerializeField] string _sceneName;
+    [SerializeField] string _seName;
 
     void Start()
     {
-        _startButton.onClick.AddListener(() => 
+        _button.onClick.AddListener(() => 
         {
+            _button.interactable = false;
+
             // ボタンのクリック音を再生してBGMをフェードアウトさせる
-            SoundManager.Instance?.PlaySE("ボタンクリックSE");
+            SoundManager.Instance?.PlaySE(_seName);
             SoundManager.Instance?.FadeOutBGM();
 
             // 音が鳴り終わったタイミングでフェードアウトを開始する
             DOVirtual.DelayedCall(0.5f, () =>
             {
-                FadeSystem.Instance?.FadeOut("InGame");
+                FadeSystem.Instance?.FadeOut(_sceneName);
             });
         });
+
+        Debug.Log("Button登録");
     }
 }

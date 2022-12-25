@@ -84,7 +84,7 @@ public class SoundManager : MonoBehaviour
     /// <summary>BGMをフェードアウトさせる</summary>
     public void FadeOutBGM(float duration = 0.5f)
     {
-        _sources[SourcesLength - 1].DOFade(0, duration);
+        _sources[SourcesLength - 1].DOFade(0, duration).SetLink(gameObject);
     }
 
     /// <summary>キーに対応したSoundDataを返す</summary>
