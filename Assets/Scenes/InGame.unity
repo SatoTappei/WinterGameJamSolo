@@ -1600,7 +1600,7 @@ MonoBehaviour:
   _inGameOverEffect: {fileID: 1421122367}
   _inGameBgmPlayer: {fileID: 1025037066}
   _inGameTimer: {fileID: 1025037070}
-  _timeLimit: 5
+  _timeLimit: 60
 --- !u!114 &1025037068
 MonoBehaviour:
   m_ObjectHideFlags: 0

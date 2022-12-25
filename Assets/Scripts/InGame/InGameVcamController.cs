@@ -10,7 +10,7 @@ using VContainer.Unity;
 /// <summary>
 /// CinemachineにFollowするオブジェクトを設定するコンポーネント
 /// </summary>
-public class VcamTargetFollower : MonoBehaviour
+public class InGameVcamController : MonoBehaviour
 {
     /// <summary>レベルデザイン用のオフセット</summary>
     readonly float OffsetPosY = 2.5f;

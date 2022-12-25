@@ -18,16 +18,6 @@ public class CarryOverToNextScene : MonoBehaviour
         SceneManager.sceneUnloaded += Reset;
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     void Reset(Scene _)
     {
         foreach (MonoBehaviour mb in _removeComponents)
@@ -35,7 +25,10 @@ public class CarryOverToNextScene : MonoBehaviour
             Destroy(mb);
         }
 
-        // このシーンから遷移したら削除される
+        // 座標を初期化する
+        transform.position = Vector3.zero;
+
+        // このシーンから遷移したら削除されるように設定する
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
         SceneManager.sceneUnloaded -= Reset;
     }

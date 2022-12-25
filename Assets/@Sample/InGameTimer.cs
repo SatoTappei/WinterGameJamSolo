@@ -17,11 +17,6 @@ public class InGameTimer : MonoBehaviour
 
     int _penalty;
 
-    void Start()
-    {
-        //_ = Timer(5, this.GetCancellationTokenOnDestroy());
-    }
-
     /// <summary>
     /// 1秒ごとに時間が減っていくタイマー、カウントが0になると処理を抜ける
     /// </summary>
