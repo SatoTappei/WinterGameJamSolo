@@ -45,9 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trigger: {fileID: 0}
-  _charaPrefab: {fileID: 4044748577088404510, guid: b1c3f624aac17f148b2f23936b4e9c56, type: 3}
-  _toCenterDuration: 2.49
-  _waitScreenCenter: 1.55
-  _toCenterEase: 1
-  _toEscapeDuration: 2.44
-  _toEscapeEase: 1
+  _charaPrefab: {fileID: 0}

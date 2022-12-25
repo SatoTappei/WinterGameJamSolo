@@ -19,8 +19,7 @@ public class ManageableManager
     public void Start()
     {
         // 汎用的だがすごい重い処理なので保留
-        // MonoBehaviourを継承したクラスを検索して
-        // IManageableにキャスト出来たら管理するためにリストに追加する
+        // MonoBehaviourを継承したクラスを検索し、IManageableにキャスト出来たら管理するためにリストに追加する
         //foreach (Component c in Object.FindObjectsOfType<Component>())
         //{
         //    IManageable iManageable = c as IManageable;

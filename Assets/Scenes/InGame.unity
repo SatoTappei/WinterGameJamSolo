@@ -1547,7 +1547,9 @@ GameObject:
   - component: {fileID: 1025037067}
   - component: {fileID: 1025037066}
   - component: {fileID: 1025037068}
+  - component: {fileID: 1025037070}
   - component: {fileID: 1025037069}
+  - component: {fileID: 1025037071}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1597,6 +1599,8 @@ MonoBehaviour:
   _inGameStartEffect: {fileID: 1885867635}
   _inGameOverEffect: {fileID: 1421122367}
   _inGameBgmPlayer: {fileID: 1025037066}
+  _inGameTimer: {fileID: 1025037070}
+  _timeLimit: 5
 --- !u!114 &1025037068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1633,6 +1637,33 @@ MonoBehaviour:
   - {fileID: 1189876722}
   - {fileID: 752479630}
   - {fileID: 1241202109}
+--- !u!114 &1025037070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025037064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f05c06a067158bb4a9f724d185e93369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1025037071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025037064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2554675c076c3e45a9f9c398a888d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1532018058}
+  _timer: {fileID: 1025037070}
+  _inGameStream: {fileID: 1025037067}
 --- !u!1 &1106478196
 GameObject:
   m_ObjectHideFlags: 0

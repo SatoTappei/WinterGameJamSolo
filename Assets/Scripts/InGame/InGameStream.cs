@@ -12,6 +12,11 @@ public class InGameStream : MonoBehaviour
     [SerializeField] InGameStartEffect _inGameStartEffect;
     [SerializeField] InGameOverEffect _inGameOverEffect;
     [SerializeField] InGameBgmPlayer _inGameBgmPlayer;
+    [SerializeField] InGameTimer _inGameTimer;
+    [Header("ゲームの制限時間")]
+    [SerializeField] int _timeLimit;
+
+    public int TimeLimit { get => _timeLimit; }
 
     async UniTaskVoid Start()
     {
@@ -25,17 +30,12 @@ public class InGameStream : MonoBehaviour
         ManageableManager manageableManager = new ManageableManager(2);
         manageableManager.Start();
         // ゲーム中
-        await UniTask.Delay(TimeSpan.FromSeconds(955.0f));
-
+        await _inGameTimer.Timer(_timeLimit, this.GetCancellationTokenOnDestroy());
         // ゲーム終了
         manageableManager.Stop();
+        // がめおべら演出
         await _inGameOverEffect.EffectAsync();
         // リザルトシーンへ以降
         FadeSystem.Instance?.FadeOut("Result");
-    }
-
-    void Update()
-    {
-        
     }
 }

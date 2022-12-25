@@ -40,13 +40,8 @@ public class TrapCharacter : MonoBehaviour
               .AppendCallback(() => Destroy(gameObject));
     }
 
-    void Update()
-    {
-        
-    }
-
     void OnDestroy()
     {
-        _seq.Kill();
+        _seq?.Kill();
     }
 }

@@ -57,6 +57,6 @@ public class Bom : MonoBehaviour
 
     void OnDestroy()
     {
-        _tween.Kill();
+        _tween?.Kill();
     }
 }

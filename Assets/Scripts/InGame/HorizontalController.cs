@@ -34,5 +34,6 @@ public class HorizontalController : MonoBehaviour, IManageable
     public void Stop()
     {
         _disposable.Dispose();
+        _rb.velocity = Vector3.zero;
     }
 }
